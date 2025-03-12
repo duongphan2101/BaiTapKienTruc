@@ -1,6 +1,7 @@
 package composite;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 // Component (Giao diện chung)
@@ -43,7 +44,7 @@ class Table implements Billable {
 }
 
 // Root (Quán cà phê, chứa nhiều bàn)
-class Cafe implements Billable {
+class Cafe implements Billable, Iterable<Table> {
     private List<Table> tables = new ArrayList<>();
 
     public void addTable(Table table) {
@@ -57,6 +58,11 @@ class Cafe implements Billable {
             total += table.getTotalPrice();
         }
         return total;
+    }
+
+    @Override
+    public Iterator<Table> iterator() {
+        return tables.iterator();
     }
 }
 

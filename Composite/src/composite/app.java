@@ -21,6 +21,10 @@ public class app {
         cafe.addTable(table1);
         cafe.addTable(table2);
 
+        for (Table b: cafe) {
+            System.out.println("Doanh Thu Cua Ban: "+b.getTotalPrice());
+        }
+
         // In tổng doanh thu
         System.out.println("Tổng doanh thu quán cà phê: " + cafe.getTotalPrice() + " VND");
     }
